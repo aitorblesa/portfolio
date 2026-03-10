@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import type { GalleryItem, Position } from "./types/types";
-import "./styles/gallery.css";
+import "@styles/gallery.css";
 
 interface CanvasProps {
   pos: Position;
