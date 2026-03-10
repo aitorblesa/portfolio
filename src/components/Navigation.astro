@@ -1,51 +1,43 @@
 ---
 import NavItem from "@components/elements/NavItem.astro";
-import ThemeToggle from "@components/ThemeToggle.astro";
 
 const navItems = [
-    {
-        title: "Experiencia",
-        label: "experiencia",
-        url: "/#experience",
-    },
-    {
-        title: "Sobre mí",
-        label: "sobre-mi",
-        url: "/#about",
-    },
-    {
-        title: "Contacto",
-        label: "contacto",
-        url: "mailto:aitor.ble@gmail.com",
-    },
+  {
+    title: "Experiencia",
+    label: "experiencia",
+    url: "/#experience",
+  },
+  {
+    title: "Proyectos",
+    label: "proyectos",
+    url: "/#projects",
+  },
+  {
+    title: "Sobre mí",
+    label: "sobre-mi",
+    url: "/#about",
+  },
+  {
+    title: "Contacto",
+    label: "contacto",
+    url: "mailto:aitor.ble@gmail.com",
+  },
 ];
 ---
 
 <header
-    class="sticky top-0 flex justify-center items-center py-4 w-full mx-auto z-10"
+  class="sticky top-0 flex justify-center items-center py-4 w-full mx-auto z-10"
 >
-    <nav
-        class="flex gap-x-8 px-3 py-2 border-[1px] justify-center items-center tracking-wide font-medium border-white/0 rounded-full text-content text-sm"
-    >
-        {
-            navItems.map((link) => (
-                <NavItem href={link.url} aria-label={link.label}>
-                    {link.title}
-                </NavItem>
-            ))
-        }
-        <ThemeToggle />
-    </nav>
+  <nav
+    class="flex gap-x-8 px-6 py-2 border-[1px] justify-center items-center tracking-wide font-medium rounded-full text-content text-sm backdrop-blur-sm border-slate-400/20 bg-gray-300/40"
+  >
+    {
+      navItems.map((link) => (
+        <NavItem href={link.url} aria-label={link.label}>
+          {link.title}
+        </NavItem>
+      ))
+    }
+  </nav>
 </header>
-<style>
-    nav {
-        animation: nav-show 1s linear both;
-        animation-timeline: scroll();
-        animation-range: 0 100px;
-    }
-    @keyframes nav-show {
-        to {
-            @apply backdrop-blur-sm border-slate-400/20 bg-gray-300/60 dark:bg-gray-800/60;
-        }
-    }
-</style>
+<style></style>

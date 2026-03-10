@@ -3,28 +3,28 @@ import Chain from "@icons/Chain.astro";
 const { date, title, description, enlaces } = Astro.props;
 ---
 
-<li class="col-span-full mb-8 last:mb-0 grid sm:grid-cols-12">
-    <header class="col-span-3">{date}</header>
-    <div class="col-span-8 flex flex-col gap-3">
-        <h3 class="font-semibold">{title}</h3>
-        <p class="max-w-lg">{description}</p>
-        {
-            enlaces && (
-                <div class="flex flex-row gap-4 flex-wrap">
-                    {Object.entries(enlaces).map(([nombre, valor]) => (
-                        <a
-                            href={`${valor}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center transition-all duration-150 hover:text-accent"
-                            aria-label={`(${nombre}) opens in a new tab`}
-                        >
-                            <Chain />
-                            {nombre}
-                        </a>
-                    ))}
-                </div>
-            )
-        }
-    </div>
+<li class="col-span-full last:mb-0 grid sm:grid-cols-12">
+  <header class="col-span-3">{date}</header>
+  <div class="col-span-8 flex flex-col gap-3">
+    <h3 class="font-semibold">{title}</h3>
+    <p class="max-w-lg">{description}</p>
+    {
+      enlaces && (
+        <div class="flex flex-row gap-4 flex-wrap">
+          {Object.entries(enlaces).map(([nombre, valor]) => (
+            <a
+              href={`${valor}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center transition-all duration-150 hover:text-accent"
+              aria-label={`(${nombre}) opens in a new tab`}
+            >
+              <Chain />
+              {nombre}
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </div>
 </li>

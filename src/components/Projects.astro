@@ -6,109 +6,117 @@ import JavascriptIcon from "@icons/Javascript.astro";
 import AstroIcon from "@icons/Astro.astro";
 import StrapiIcon from "@icons/Strapi.astro";
 import PROJECTS from "../data/projects.json";
-import Chain from "@icons/Chain.astro";
 
 const TAG_METADATA = {
   "Next.js": {
     icon: NextJsIcon,
-    class: "bg-black"
+    class: "bg-black text-white",
   },
   "Tailwind CSS": {
     icon: TailwindIcon,
-    class: "bg-[#003159]"
+    class: "bg-[#003159] text-white",
   },
-  "React": {
+  React: {
     icon: ReactIcon,
-    class: "bg-cyan-500/15"
+    class: "bg-cyan-500/15 text-white",
   },
-  "JavaScript": {
+  JavaScript: {
     icon: JavascriptIcon,
-    class: "bg-[#c4b00a] text-black"
+    class: "bg-[#c4b00a] text-black",
   },
-  "Astro": {
+  Astro: {
     icon: AstroIcon,
-    class: "bg-[#FF5D01] text-black"
+    class: "bg-[#FF5D01] text-black",
   },
-  "Strapi": {
+  Strapi: {
     icon: StrapiIcon,
-    class: "bg-[#4945FF] text-white"
+    class: "bg-[#4945FF] text-white",
   },
-  
 } as const;
 
 type TagMeta = {
   class: string;
-  Icon?: any;
+  icon?: any;
 };
 
 const getTagMeta = (tag: string): TagMeta => {
   const tagInfo = TAG_METADATA[tag as keyof typeof TAG_METADATA];
-
   return {
-    class: tagInfo?.class ?? "bg-neutral-100",
-    Icon: tagInfo?.icon ?? null,
+    class: tagInfo?.class ?? "bg-white/5 border border-white/10 text-white",
+    icon: tagInfo?.icon ?? null,
   };
 };
 ---
 
-<section
-  id="about"
-  class="grid grid-cols-1 pt-12 pb-20 md:pt-24 lg:grid-cols-12 xl:py-20 w-full"
->
-  <h1 class="col-span-3 text-accent uppercase font-semibold text-xl mb-4 lg:text-right lg:mr-24 lg:w-52">
-    Proyectos Destacados
-  </h1>
-  <article class="flex flex-col  col-span-9 gap-y-16">
-  {
-    PROJECTS.map(({ title, description, etiquetas, enlaces, image }) => (
-      <article class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 w-full group">
-        <div class="w-full md:w-1/2 rounded-xl border shadow-xl transition duration-500 ease-in-out transform relative overflow-clip md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-            <img src={image} alt={title} loading="lazy" class="col-span-4 rounded-lg object-cover object-top w-full h-64 transition duration-500 md:group-hover:scale-105" />
-        </div>
-        <div class="w-full md:w-1/2 flex flex-col gap-3">
-            <h3 class="text-2xl font-bold">{title}</h3>
-            <ul class="flex mb-2 gap-x-2">
-              {etiquetas.tags.map((tag) => {
-                const meta = getTagMeta(tag);
-                const Icon = meta.Icon;
-               
-                return (
-                  <li>
-                    <span
-                      class={`flex gap-x-2 rounded-full text-xs  text-white py-1 px-2
-                      ${meta.class}
-                      `}
-                      aria-label={tag}> 
-                        {Icon && <Icon />}
-                        {tag}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-
-            <p class="max-w-lg text-pretty">{description}</p>
-            {
-                enlaces && (
-                    <div class="flex flex-row gap-4 flex-wrap">
-                        {Object.entries(enlaces).map(([nombre, valor]) => (
-                            <a
-                                href={`${valor}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="inline-flex items-center transition-all duration-150 hover:text-accent"
-                                aria-label={`(${nombre}) opens in a new tab`}
-                            >
-                                <Chain />
-                                {nombre}
-                            </a>
-                        ))}
-                    </div>
-                )
-            }
-        </div>
-      </article>
-    ))  
-  }
+<section class="pt-32 px-6" data-purpose="projects-showcase" id="projects">
+  <div class="max-w-7xl mx-auto">
+    <div
+      class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6"
+    >
+      <div class="reveal-on-scroll">
+        <p
+          class="text-accent font-display font-bold tracking-[0.2em] uppercase text-sm mb-4"
+        >
+          Proyectos Destacados
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col gap-12 md:gap-20 w-full">
+      {
+        PROJECTS.map(
+          ({ title, description, etiquetas, enlaces, image }, index) => (
+            <article
+              class="project-card reveal-on-scroll group w-full"
+              data-purpose="project-item"
+              style={`transition-delay: ${index * 0.2}s;`}
+            >
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <div class="relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-gray cursor-pointer md:col-span-1">
+                  <img
+                    alt={title}
+                    class="project-image w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    src={image}
+                  />
+                  <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <a
+                      href={enlaces.visitar}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      class="px-6 py-3 bg-white text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform"
+                    >
+                      Visitar
+                    </a>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-4 md:col-span-2">
+                  <div>
+                    <h3 class="text-2xl md:text-3xl font-display font-bold mb-2">
+                      {title}
+                    </h3>
+                    <p class="text-content text-lg leading-relaxed max-w-2xl">
+                      {description}
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    {etiquetas.tags.map((tag: string) => {
+                      const meta = getTagMeta(tag);
+                      const Icon = meta.icon;
+                      return (
+                        <span
+                          class={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-all duration-150 ${meta.class}`}
+                        >
+                          {Icon && <Icon class="w-4 h-4" />}
+                          {tag}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </article>
+          ),
+        )
+      }
+    </div>
   </div>
 </section>

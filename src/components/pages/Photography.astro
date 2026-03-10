@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import { getImagesByTag, optimizeImage } from "../../utils/cloudinary";
 import Layout from "@layouts/Layout.astro";
 import GalleryBase from "@components/GalleryBase.tsx";
@@ -11,7 +13,7 @@ const optimizedImages = cloudinaryImages.map((image) => optimizeImage(image));
 ---
 
 <Layout title="Aitor Blesa | Frontend Developer">
-  <main class="flex flex-col mx-auto p-8 pt-20 min-h-screen w-full">
+  <main class="min-h-screen w-full">
     <GalleryBase images={optimizedImages} client:load />
   </main>
 </Layout>

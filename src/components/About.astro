@@ -1,0 +1,73 @@
+<section class="py-32" data-purpose="about-section" id="about">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <div class="reveal-on-scroll">
+      <h2
+        class="text-accent font-display font-bold tracking-[0.2em] uppercase text-sm mb-8"
+      >
+        Sobre Mi
+      </h2>
+      <p
+        class="text-3xl md:text-5xl font-display font-bold leading-tight mb-10"
+      >
+        Fusionando código y lente para crear
+        <span class="italic font-light">historias visuales</span>.
+      </p>
+      <p class="text-content text-lg leading-relaxed mb-8">
+        Actualmente como HMI Developer en <a
+          class="text-accent font-semibold hover:underline"
+          href="https://www.bertrandt.com/en/hmi-ux-development"
+          target="_blank"
+          rel="noopener noreferrer">Bertrandt</a
+        >, creando la interfaz HMI <a
+          class="text-accent font-semibold hover:underline"
+          href="https://www.cupraofficial.es"
+          target="_blank"
+          rel="noopener noreferrer">Cupra</a
+        > and <a
+          class="text-accent font-semibold hover:underline"
+          href="https://www.seat.es"
+          target="_blank"
+          rel="noopener noreferrer">SEAT</a
+        >. Mi trabajo reside entre la intersección de la ingeniería y el arte.
+      </p>
+      <p class="text-content text-lg leading-relaxed mb-12">
+        Mas allá del terminal, soy un apasionado fotógrafo de paisajes. Busco
+        cerrar la brecha entre la imagen estática y la interacción digital a
+        través de experiencias inmersivas.
+      </p>
+    </div>
+
+    <div
+      class="relative reveal-on-scroll group"
+      data-purpose="canvas-teaser"
+      style="transition-delay: 0.3s;"
+    >
+      <div
+        class="relative z-10 rounded-3xl overflow-hidden border border-white/10 aspect-square canvas-teaser-mask shadow-2xl"
+      >
+        <img
+          src="/ice_portrait.webp"
+          alt="Canvas Teaser"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      <!-- Call to action for the Canvas -->
+      <div
+        class="absolute flex flex-col bottom-10 left-1/2 -translate-x-1/2 z-20 w-[90%] bg-black/70 backdrop-blur-sm p-8 rounded-2xl border border-white/10 text-center"
+        id="canvas"
+      >
+        <h3 class="text-xl font-display font-bold mb-2">Galería Canvas 360°</h3>
+        <p class="text-md text-white/50 mb-6 text-balance">
+          Descubre mi forma de capturar el mundo a través de mi lente.
+        </p>
+        <a
+          href="/photography"
+          data-astro-prefetch="viewport"
+          class="w-full py-4 bg-brand-gold text-accent font-extrabold rounded-lg hover:bg-white transition-colors uppercase tracking-widest text-md"
+        >
+          Ver Galería
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

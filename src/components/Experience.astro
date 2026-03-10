@@ -1,29 +1,53 @@
 ---
-import ExperienceItem from "@components/elements/ExperienceItem.astro";
 import EXPERIENCE from "@data/experience.json";
 ---
 
-<section
-  id="experience"
-  class="grid grid-cols-1 pt-12 md:pt-24 lg:grid-cols-12"
->
-  <h1
-    class="text-accent uppercase font-semibold text-xl mb-8 col-span-2 lg:col-span-3 lg:mr-24 lg:w-52 lg:text-right"
-  >
-    Experiencia
-  </h1>
-  <div
-    class="text-pretty sm:col-span-12 md:col-span-10 lg:col-span-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-  >
-    {
-      EXPERIENCE.map(({ date, title, description, enlaces }) => (
-        <ExperienceItem
-          date={date}
-          title={title}
-          description={description}
-          enlaces={enlaces}
-        />
-      ))
-    }
+<section class="pt-32 px-6" data-purpose="experience-section" id="experience">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal-on-scroll mb-20">
+      <p
+        class="text-accent font-display font-bold tracking-[0.2em] uppercase text-sm mb-4"
+      >
+        Experiencia
+      </p>
+    </div>
+    <div class="space-y-12">
+      {
+        EXPERIENCE.map((exp, index) => (
+          <div
+            class={`reveal-on-scroll grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-12 py-12 group ${
+              index > 0 ? "border-t border-white/10" : ""
+            }`}
+            style={index > 0 ? `transition-delay: ${index * 0.1}s;` : ""}
+          >
+            <div class="text-content font-display font-medium text-lg uppercase tracking-wider">
+              {exp.date}
+            </div>
+            <div class="md:col-span-3">
+              <h3 class="text-2xl md:text-3xl font-display font-bold mb-4 flex items-center gap-3">
+                {exp.title}
+              </h3>
+              <p class="text-content text-lg leading-relaxed max-w-3xl">
+                {exp.description}
+              </p>
+              {exp.enlaces && (
+                <div class="flex flex-row gap-4 flex-wrap mt-4">
+                  {Object.entries(exp.enlaces).map(([nombre, url]) => (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-accent hover:underline transition-all duration-150"
+                    >
+                      {nombre}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>

@@ -30,17 +30,41 @@ export interface CloudinaryImageType {
 export interface CloudinaryOptimizedImage {
   highResURL?: string;
   optimizedUrl?: string;
-  tags: string[];
+  placeholderUrl?: string;
+  tags?: string[];
   url?: string;
-  width: string;
-  height: string;
+  width: number;
+  height: number;
   aspectRatio?: number;
 }
 
-export interface TextHighlightProps {
+export interface Position {
+  x: number;
+  y: number;
+  scale: number;
+}
+
+export interface Region {
+  center: { x: number; y: number };
+  count: number;
+}
+
+export interface GalleryItem {
+  id: number;
   url: string;
-  children: React.ReactNode;
-  target?: string;
-  rel?: string;
-  setModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  fullUrl: string;
+  placeholderUrl?: string;
+  title: string;
+  meta: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  regionKey: string;
+  width: number;
+  height: number;
+  z: number;
+  rotateX: number;
+  rotateY: number;
+  rotateZ: number;
 }

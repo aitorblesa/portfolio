@@ -1,30 +1,48 @@
-section {
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+body {
+  overflow: hidden;
+  cursor: grab;
 }
 
-@media (max-width: 500px) {
-  section {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
+body:active {
+  cursor: grabbing;
 }
 
-#gallery a {
-  cursor: zoom-in;
-  animation: fade-up-images linear both;
-  animation-timeline: view();
-  animation-range: entry 10% cover 13%;
+.infinite-canvas {
+  width: 100vw;
+  height: 100vh;
 }
 
-@keyframes fade-up-images {
-  0% {
-    opacity: 0;
-    translate: 0 50px;
-    scale: .7;
-  }
+.canvas-stage {
+  position: absolute;
+  inset: 0;
+}
 
-  100% {
-    opacity: 1;
-    translate: 0 0;
-    scale: 1;
-  }
+.organic-image {
+  z-index: var(--card-z);
+  opacity: var(--card-opacity, 0.9);
+  transform: scale(1);
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease,
+    box-shadow 0.6s ease,
+    opacity 0.35s ease;
+  will-change: transform;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.28),
+    0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.organic-image:hover {
+  z-index: 9999;
+  opacity: 1;
+  transform: scale(1.05);
+  filter: saturate(1.05) brightness(1.05);
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.34),
+    0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.custom-cursor {
+  pointer-events: none;
+  mix-blend-mode: difference;
 }
