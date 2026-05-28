@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep:*)",
+      "Bash(grep -rn \"<section\\\\|<article\\\\|<nav\\\\|<main\\\\|<header\\\\|<footer\\\\|<aside\" /d/Documents/Development/Web/React/porfolio-dev/src/components --include=*.astro --include=*.tsx)",
+      "Bash(grep -rn \"type=button\\\\|type=''''button''''\" /d/Documents/Development/Web/React/porfolio-dev/src/components --include=*.tsx)"
+    ]
+  }
+}

@@ -1,11 +1,10 @@
 ---
-const { href, label } = Astro.props;
+const { href } = Astro.props;
 ---
 
 <a
-  class="hover:text-accent rounded-full transition"
+  class="hover:text-accent rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
   href={href}
-  aria-label={label}
 >
   <slot />
 </a>

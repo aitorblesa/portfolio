@@ -41,7 +41,12 @@ export default function GalleryModal({
   const data = galleryData[currentIdx];
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/90 p-4 backdrop-blur-2xl">
+    <div
+      className="fixed inset-0 z-40 flex items-center justify-center bg-black/90 p-4 backdrop-blur-2xl"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Fotografía: ${data.title}`}
+    >
       <button
         type="button"
         className="absolute inset-0 cursor-default"
@@ -66,6 +71,8 @@ export default function GalleryModal({
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
             class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -103,6 +110,8 @@ export default function GalleryModal({
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
             class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -126,6 +135,8 @@ export default function GalleryModal({
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
             class="icon icon-tabler icons-tabler-outline icon-tabler-x"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />

@@ -82,7 +82,8 @@ const getTagMeta = (tag: string): TagMeta => {
                       href={enlaces.visitar}
                       rel="noopener noreferrer"
                       target="_blank"
-                      class="px-6 py-3 bg-white text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform"
+                      aria-label={`Visitar ${title} (abre en nueva pestaña)`}
+                      class="px-6 py-3 bg-white text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
                     >
                       Visitar
                     </a>
@@ -105,7 +106,7 @@ const getTagMeta = (tag: string): TagMeta => {
                         <span
                           class={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-all duration-150 ${meta.class}`}
                         >
-                          {Icon && <Icon class="w-4 h-4" />}
+                          {Icon && <Icon class="w-4 h-4" aria-hidden="true" />}
                           {tag}
                         </span>
                       );

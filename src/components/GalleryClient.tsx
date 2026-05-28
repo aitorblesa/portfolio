@@ -64,7 +64,7 @@ function LazyImage({ image }: { image: CloudinaryImageType }) {
           loading="lazy"
           decoding="async"
           src={image.url}
-          alt="Gallery Image"
+          alt={image.tags?.join(", ") ?? "Fotografía de paisaje"}
           onLoad={() => setLoaded(true)}
           style={{
             opacity: loaded ? 1 : 0,
@@ -96,7 +96,13 @@ export default function GalleryClient({
         <p className="text-center">No images found for "{location}"</p>
       ) : (
         filteredImages.map((image, index) => (
-          <a key={index} href={image.url} target="_blank" rel="noreferrer">
+          <a
+            key={index}
+            href={image.url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Ver fotografía: ${image.tags?.join(", ") ?? "Fotografía de paisaje"} (abre en nueva pestaña)`}
+          >
             <LazyImage image={image} />
           </a>
         ))

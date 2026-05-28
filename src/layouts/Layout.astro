@@ -13,7 +13,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -22,10 +22,6 @@ const { title } = Astro.props;
     />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta
-      name="description"
-      content="Aitor Blesa es un desarrollador de software que crea productos y experiencias accesibles y usables para la web."
-    />
     <title>{title}</title>
     <meta property="og:locale" content="es_ES" />
     <meta
@@ -38,6 +34,12 @@ const { title } = Astro.props;
     <ClientRouter />
   </head>
   <body id="home" class="relative text-content min-h-screen">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent focus:text-black focus:font-bold focus:rounded-lg"
+    >
+      Saltar al contenido principal
+    </a>
     <Background />
     <Navigation />
 
